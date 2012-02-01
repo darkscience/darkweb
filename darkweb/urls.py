@@ -5,6 +5,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
+    url(r'^wiki/', include('lithium.wiki.urls')),
     # Examples:
     # url(r'^$', 'darkweb.views.home', name='home'),
     # url(r'^darkweb/', include('darkweb.foo.urls')),

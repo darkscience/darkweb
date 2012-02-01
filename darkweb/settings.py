@@ -125,6 +125,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'lithium.wiki',
 )
 
 # A sample logging configuration. The only tangible logging
