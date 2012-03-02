@@ -355,8 +355,35 @@ form { padding: 10px; }
 form p { margin-bottom: 10px; font-size: 12px; }
 form fieldset { margin: 0; padding: 0; }
 form p label { float: left; padding-right: 10px; width: 100px; font-weight: bold; text-align: right; }
-form p input { padding: 4px; width: 200px; font-size: 14px; border: 1px solid #eee; }
-form p textarea { padding: 4px; width: 450px; height: 300px; font-size: 14px; border: 1px solid #eee; }
-form p input:hover { border: 1px solid #ddd; }
-form p textarea:hover { border: 1px solid #ddd; }
+form p input { padding: 4px; width: 200px; font-size: 14px; }
+form p textarea { padding: 4px; width: 450px; height: 300px; font-size: 14px; }
+form p input:hover { border: 1px solid #000; }
+form p textarea:hover { border: 1px solid #000; }
 form input#id_cc_myself { width: 17px; }
+
+input[type="text"], textarea {
+    background: #282828;
+    border: 1px solid #111;
+    color: #fff;
+}
+
+ul.quote {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+ul.quote .sender {
+    color: #53C8DD;
+}
+
+ul.quote li.action {
+    font-style: italic;
+}
+
+.pagination {
+    margin-top: 20px;
+}
+
+.pagination .next {
+    float: right;
+}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Quote #{{ object }} ({{ object.votes }}) [<a href="up/">+</a>|<a href="down/">-</a>]</h2>
+
+    <ul class="quote">
+      {% for line in object.line_set.all %}
+        {% if line.is_action %}
+          <li class="action">* <span class="sender">{{ line.sender }}</span> {{ line.message }}</li>
+        {% else %}
+          <li><span class="sender">&lt;{{ line.sender }}&gt;</span> {{ line.message }}</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+    <p>Uploaded: {{ object.upload_time }}</p>
+{% endblock %}

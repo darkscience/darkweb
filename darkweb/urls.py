@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'darkweb.views.home', name='home'),
     # url(r'^darkweb/', include('darkweb.foo.urls')),
+    url(r'^quotes/', include('quotes.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
