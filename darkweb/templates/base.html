@@ -11,6 +11,9 @@
     <div id='container'>
         <header>
             <a href='./' id='logo'></a>
+
+            {% load quote %}
+            <div id="quote">{% random_quote_line %}</div>
         </header>
 
         <nav>
