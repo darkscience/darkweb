@@ -1,0 +1,362 @@
+/* Begin global property reset */
+html, body, div, img, a, p, span, ul, li, h1, h2, h3, h4, h5, h6, hr, 
+object, table, thead, tbody, tfoot, tr, th, td, form, select, option, noscript {
+	width : auto;
+	height : auto;
+	margin : 0;
+	padding : 0;
+	border : 0;
+	outline : 0;
+	background-color : transparent;
+}
+/* End global property reset */
+
+/* Begin global tag properties */
+html, body {
+	width : 100%;
+}
+
+body {
+	margin : 75px 0 0 0;
+	padding : 0 0 30px 0;
+	text-align : center;
+	color : rgb(220,220,220);
+	background : rgb(0,0,0) url('../images/background_repeat.jpg');
+	font : normal 12px Verdana, sans-serif, "Times New Roman";
+}
+
+img {
+	border : none;
+}
+
+a:focus {
+	outline : none;
+}
+
+a, a:visited {
+	color : rgb(83,200,221);
+	text-decoration : none;
+}
+
+a:hover {
+	text-decoration : underline;
+}
+
+h1 {
+	color : rgb(217,232,230);
+	font : bold 1.4em Geneva, "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+}
+
+h2 {
+	margin : 0 0 6px 0;
+	padding : 0 0 4px 0;
+	border-bottom : 1px solid rgb(83,200,221);
+	font : italic 0.9em Verdana, sans-serif, "Times New Roman";
+}
+
+hr {
+	height : 4px;
+	color : rgb(150,150,150);
+}
+/* End global tag properties */
+
+/* Begin global classes */
+.bold {
+	font-weight : bold;
+}
+.running {
+	text-transform: lowercase;
+}
+.center {
+	display: block;
+	margin: 0 auto;
+}
+
+/* End global classes */
+
+/* Begin #container element properties */
+#container {
+	width : 75%;
+	min-width : 950px;
+	min-height : 100%;
+	margin : 0 auto;
+	padding : 20px;
+	text-align : left;
+	border : 1px solid rgb(83,200,221);
+    border: 1px solid #9E9E9E;
+	background : rgb(25,25,25) url(../images/gradient.png) top center no-repeat;
+}
+
+#container:after {
+	content : "";
+	display : block;
+	height : 0;
+	clear : both;
+}
+/* End #container element properties */
+
+/* Begin header element properties */
+header {
+	position : relative;
+	width : 100%;
+	height : 40px;
+}
+/* End #header element properties */
+
+/* Begin #logo element properties */
+header #logo {
+	position : absolute;
+	width : 318px;
+	height : 72px;
+	top : -55px;
+	left : 0;
+	background : url(../images/logo2.png);
+}
+/* End #logo element properties */
+
+/* Begin #quote element properties */
+header #quote {
+	position : absolute;
+	top : -10px;
+	right : 0px;
+	font : italic 1.0em Verdana, sans-serif, "Times New Roman";
+}
+/* Begin #quote element properties */
+
+/* Begin #nav element properties */
+nav {
+	float : left;
+	width: 200px;
+	margin-right: 5px;
+}
+
+nav a{
+	display : list-item;
+	padding : 4px 6px 4px 6px;
+	list-style : none;
+	font : normal 1.2em Geneva, "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+	margin: 0 0 5px 0;
+	background : rgb(40,40,40);
+	color : rgb(220,220,220);
+}
+
+nav a:hover {
+	color : rgb(20,20,20);
+	background : rgb(83,200,221);
+	text-decoration : none;
+}
+/* End #nav element properties */
+
+/* Begin #main element properties */
+#container article {
+	padding-left: 15px;
+	overflow : auto;
+	border-left: 1px solid rgb(60,60,60);
+}
+
+#container article .sec {
+	padding : 0px 5px 5px 5px;
+	margin : 0 0 20px 0;
+}
+
+#container article .sec .irc ul.padding li {
+	margin : 0 0 0 15px;
+}
+
+#container article .sec ul {
+	margin : 0 0 0 15px;
+	list-style-type : square;
+}
+
+#container article .sec ul.column {
+	float : left;
+	width : 150px;
+}
+
+#container article .sec .irc{
+	margin : 0 0 0 20px;
+}
+
+#container article .sec .pop {
+	color : rgb(83,200,221);
+}
+
+#container article .sec .pop span{
+	color : rgb(220,220,220);
+}
+
+#container article .sec:hover {
+	background : rgb(40,40,40);
+	color : rgb(230,230,230);
+}
+
+#container article .sec table {
+	float : right;
+	text-align : right;
+	width : 60%;
+	padding : 5px;
+}
+
+#container article .sec table:hover {
+	background : rgb(40,40,40);
+	color : rgb(230,230,230);
+}
+/* library-related element properties */
+#container article .lib table {
+	text-align : left;
+	width : 100%;
+}
+
+#container article .lib .status tr.bold {
+	text-align : center;
+	font-weight : bold;
+}
+
+#container article .lib .status tr.alt td {
+	text-align : center;
+}
+
+body#status #container article .lib:hover {
+	background : inherit;
+	color : inherit;
+}
+/*  end library-related element properties */
+
+#container article .sec .status td {
+	width : 17%;
+	padding : 4px;
+	border-right : 1px solid rgb(60,60,60);
+}
+
+#container article .sec .status tr.bold {
+	text-align : center;
+	font-weight : bold;
+}
+
+#container article .sec .status tr.alt td {
+	background-color: rgb(50,50,50);
+}
+
+#container article .sec .status td.top {
+	border-bottom : 1px solid rgb(60,60,60);
+	border-right : 0;
+}
+
+#container article .sec .status td.border {
+	border-bottom : 1px solid rgb(60,60,60);
+}
+
+#container article .sec .status td.border2 {
+	border-left : 1px solid rgb(60,60,60);
+}
+
+#container article .sec .status td.left {
+	width : 50%;
+	text-align : left;
+	border-left : 1px solid rgb(60,60,60);
+}
+
+#container article .sec table.left {
+	float : left;
+	width : 38%;
+}
+
+body#status #container article .sec:hover {
+	background : inherit;
+	color : inherit;
+}
+/* End #main element properties */
+
+/* Begin navigation properties */
+body#home #container nav a.home,
+body#info #container nav a.info,
+body#status #container nav a.status,
+body#stat #container nav a.stat,
+body#links #container nav a.links,
+body#snm #container nav a.snm,
+body#vpn #container nav a.vpn,
+body#irpg #container nav a.irpg,
+body#wargames #container nav a.wargames,
+body#contact #container nav a.contact,
+body#paste #container nav a.paste,
+body#faq #container nav a.faq,
+body#staff #container nav a.staff,
+body#history #container nav a.history,
+body#bbs #container nav a.bbs,
+body#qdb #container nav a.qdb,
+body#library #container nav a.library,
+body#articles #container nav a.articles {
+	background : rgb(40,40,40) url(../images/arrow.gif) no-repeat center right;
+}
+
+body#home #container nav a.home:hover,
+body#info #container nav a.info:hover,
+body#status #container nav a.status:hover,
+body#stat #container nav a.stat:hover,
+body#wargames #container nav a.wargames:hover,
+body#contact #container nav a.contact:hover,
+body#paste #container nav a.paste:hover,
+body#faq #container nav a.faq:hover,
+body#staff #container nav a.staff:hover,
+body#history #container nav a.history:hover,
+body#bbs #container nav a.bbs:hover,
+body#snm #container nav a.snm:hover,
+body#vpn #container nav a.vpn:hover,
+body#irpg #container nav a.irpg:hover,
+body#qdb #container nav a.qdb:hover,
+body#links #container nav a.links:hover,
+body#library #container nav a.library:hover,
+body#articles #container nav a.articles:hover {
+	color : rgb(20,20,20);
+	background : rgb(83,200,221) url(../images/arrow.gif) no-repeat center right;
+}
+/* End navigation properties */
+
+article {
+
+}
+
+article h1 {
+    font-size: 22px;
+}
+
+
+article h2 {
+	margin : 0 0 6px 0;
+	padding : 0 0 4px 0;
+	border-bottom : 1px solid rgb(83,200,221);
+	font: 18px Verdana, sans-serif, "Times New Roman";
+}
+
+table {
+    margin-bottom: 15px;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table caption {
+    font-size: 18px;
+    padding: 8px;
+}
+
+table, th, td {
+    border: 1px solid #9E9E9E;
+}
+
+td, th {
+    padding: 5px;
+}
+
+article .note {
+    float: right;
+}
+
+form { padding: 10px; }
+form p { margin-bottom: 10px; font-size: 12px; }
+form fieldset { margin: 0; padding: 0; }
+form p label { float: left; padding-right: 10px; width: 100px; font-weight: bold; text-align: right; }
+form p input { padding: 4px; width: 200px; font-size: 14px; border: 1px solid #eee; }
+form p textarea { padding: 4px; width: 450px; height: 300px; font-size: 14px; border: 1px solid #eee; }
+form p input:hover { border: 1px solid #ddd; }
+form p textarea:hover { border: 1px solid #ddd; }
+form input#id_cc_myself { width: 17px; }
