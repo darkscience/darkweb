@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>Quote #{{ object }} ({{ object.votes }}) [<a href="up/">+</a>|<a href="down/">-</a>]</h2>
+    <h2>Quote #{{ object }} ({{ object.votes }}) [<a href="{{ object.get_absolute_url }}up/">+</a>|<a href="{{ object.get_absolute_url }}down/">-</a>]</h2>
 
     <ul class="quote">
       {% for line in object.line_set.all %}
