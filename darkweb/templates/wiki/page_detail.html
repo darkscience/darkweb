@@ -4,7 +4,9 @@
 {% block title %}{{ page.title }}{% endblock %}
 
 {% block content %}
+{% if user.is_authenticated %}
 <p class="note">{% if page.parent %}<a href="{{ page.parent.get_absolute_url }}">{{ page.parent }}</a> | {% endif %}<a href="{{ page.get_edit_url }}">{% trans 'Edit' %} {{ page.title }}</a> | <a href="{{ page.get_history_url }}">{% trans 'History of' %} {{ page.title }}</a> | <a href="{{ page.get_discuss_url }}">{% trans 'Discuss ' %} {{ page.title }}</a>{% if page.has_children %} | <a href="{{ page.get_children_url }}">{% trans 'Sub pages' %}</a>{% endif %}</p>
+{% endif %}
 
 <h2>{{ page.title }}</h2>
 
