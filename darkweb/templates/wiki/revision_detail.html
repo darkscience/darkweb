@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ revision.title }}{% endblock %}
+
+{% block content %}
+<h2><a href="{{ revision.page.get_absolute_url }}">{{ revision.title }}</a></h2>
+{% load markup %}
+<p>{{ revision.content|restructuredtext }}</p>
+<p class="note">{% if revision.comment %}{{ revision.comment }}{% else %}{{ revision.pk }}{% endif %} - {% trans 'Revision by' %} {% if revision.author %}<a href="{{ revision.author.get_absolute_url }}">{{ revision.author }}</a>{% else %}{{ revision.author_ip }}{% endif %} at {{ revision.pub_date }}</p>
+{% endblock %}
