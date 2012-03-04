@@ -131,6 +131,7 @@ INSTALLED_APPS = (
     'gunicorn',
     'lithium.wiki',
     'quotes',
+    'darkweb.utils',
 )
 
 # A sample logging configuration. The only tangible logging

@@ -6,12 +6,13 @@
 {% block content %}
 <p class="note">{% if page.parent %}<a href="{{ page.parent.get_absolute_url }}">{{ page.parent }}</a> | {% endif %}<a href="{{ page.get_edit_url }}">{% trans 'Edit' %} {{ page.title }}</a> | <a href="{{ page.get_history_url }}">{% trans 'History of' %} {{ page.title }}</a> | <a href="{{ page.get_discuss_url }}">{% trans 'Discuss ' %} {{ page.title }}</a>{% if page.has_children %} | <a href="{{ page.get_children_url }}">{% trans 'Sub pages' %}</a>{% endif %}</p>
 
-<h1>{{ page.title }}</h1>
+<h2>{{ page.title }}</h2>
 
 {% load markup %}
+{% load wiki %}
 
 {% if page_exists %}
-  <p>{{ page.content|restructuredtext }}</p>
+  <p>{{ page.content|restructuredtext|links }}</p>
 {% else %}
   <p>{% trans 'This page does not exist. To create this page please click' %} <a href="{{ page.get_edit_url }}">{% trans 'here' %}</a>.</p>
 {% endif %}

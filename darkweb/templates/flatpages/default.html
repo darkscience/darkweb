@@ -4,5 +4,6 @@
 
 {% block content %}
 {% load markup %}
-{{ flatpage.content|restructuredtext }}
+{% load wiki %}
+{{ flatpage.content|restructuredtext|links }}
 {% endblock %}
