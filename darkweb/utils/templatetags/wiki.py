@@ -10,7 +10,7 @@ OR
 [title] # slugify
 """
 
-LINK_RE = re.compile(r'\[\[(?P<title>[\w\s]+)(\|(?P<slug>[\w\s]+))?(?P<anchor>(#[\w\s]+))?\]\]')
+LINK_RE = re.compile(r'\[\[(?P<title>[\w\s]+)(\|(?P<slug>[\w\s]+))?(?P<anchor>(#[\w\s\-]+))?\]\]')
 
 def link_replace(match):
     kwargs = match.groupdict()
