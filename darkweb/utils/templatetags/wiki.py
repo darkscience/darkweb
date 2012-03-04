@@ -10,15 +10,20 @@ OR
 [title] # slugify
 """
 
-LINK_RE = re.compile(r'\[\[(?P<title>[\w\s]+)(\|(?P<slug>[\w\s]+))?\]\]')
+LINK_RE = re.compile(r'\[\[(?P<title>[\w\s]+)(\|(?P<slug>[\w\s]+))?(?P<anchor>(#[\w\s]+))?\]\]')
 
 def link_replace(match):
     kwargs = match.groupdict()
 
     if not kwargs['slug']:
-        kwargs['slug'] = slugify(kwargs['title'])
+        kwargs['slug'] = kwargs['title']
 
-    return '<a href="/wiki/{slug}/">{title}</a>'.format(**kwargs)
+    kwargs['slug'] = slugify(kwargs['slug'])
+
+    if not kwargs['anchor']:
+        kwargs['anchor'] = ''
+
+    return '<a href="/wiki/{slug}/{anchor}">{title}</a>'.format(**kwargs)
 
 register = template.Library()
 
