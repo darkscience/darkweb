@@ -156,3 +156,5 @@ LOGGING = {
         },
     }
 }
+
+WIKI_DEFAULT_USER_PERMISSION = 2
