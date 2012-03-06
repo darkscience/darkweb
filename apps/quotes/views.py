@@ -1,11 +1,35 @@
 import hashlib
+import json
 
-from django.views.generic import FormView, RedirectView, ListView
+from django.views.generic import FormView, RedirectView, ListView, DetailView
 from django.shortcuts import get_object_or_404
+from django.http import HttpResponse
 
 from quotes.models import Quote, VoteLog
 from quotes.forms import QuoteForm
 
+class QuoteDetail(DetailView):
+    def get(self, request, **kwargs):
+        if 'application/json' in request.META.get('HTTP_ACCEPT'):
+            quote = self.get_object()
+            result = {
+                "pk": quote.pk,
+                "votes": quote.votes,
+                "upload_time": quote.upload_time.isoformat(),
+                "lines": [],
+                "url": quote.get_absolute_url(),
+            }
+            for line in quote.line_set.all():
+                result['lines'].append({
+                    'pk': line.pk,
+                    'sender': line.sender,
+                    'message': line.message,
+                    'is_action':line.is_action,
+                    'str': unicode(line),
+                })
+            return HttpResponse(json.dumps(result), mimetype='application/json')
+
+        return super(QuoteDetail, self).get(request, **kwargs)
 
 class AddQuoteView(FormView):
     form_class = QuoteForm
@@ -42,9 +66,11 @@ class VoteView(RedirectView):#, SingleObjectMixin):
 
         return quote.get_absolute_url()
 
+
 class ListQuotes(ListView):
     queryset = Quote.objects.order_by('-pk')
     paginate_by = 5
+
 
 class TopQuotes(ListQuotes):
     queryset = Quote.objects.order_by('-votes')
