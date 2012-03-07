@@ -3,6 +3,6 @@ Pygments==1.4
 South==0.7.3
 docutils==0.8.1
 gunicorn==0.14.0
-lithium==0.4.2
+lithium==0.4.4
 psycopg2==2.4.4
 wsgiref==0.1.2
