@@ -9,6 +9,8 @@ from quotes.models import Quote, VoteLog
 from quotes.forms import QuoteForm
 
 class QuoteDetail(DetailView):
+    model = Quote
+
     def get(self, request, **kwargs):
         if 'application/json' in request.META.get('HTTP_ACCEPT'):
             quote = self.get_object()
@@ -30,6 +32,10 @@ class QuoteDetail(DetailView):
             return HttpResponse(json.dumps(result), mimetype='application/json')
 
         return super(QuoteDetail, self).get(request, **kwargs)
+
+class RandomQuote(QuoteDetail):
+    def get_object(self):
+        return self.model.objects.order_by('?')[0]
 
 class AddQuoteView(FormView):
     form_class = QuoteForm
