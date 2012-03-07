@@ -134,7 +134,7 @@ nav {
 	margin-right: 5px;
 }
 
-nav a{
+nav a, nav a:visited {
 	display : list-item;
 	padding : 4px 6px 4px 6px;
 	list-style : none;
@@ -158,50 +158,50 @@ nav a:hover {
 	border-left: 1px solid rgb(60,60,60);
 }
 
-#container article .sec {
+#container article .section {
 	padding : 0px 5px 5px 5px;
 	margin : 0 0 20px 0;
 }
 
-#container article .sec .irc ul.padding li {
+#container article .section .irc ul.padding li {
 	margin : 0 0 0 15px;
 }
 
-#container article .sec ul {
+#container article .section ul {
 	margin : 0 0 0 15px;
 	list-style-type : square;
 }
 
-#container article .sec ul.column {
+#container article .section ul.column {
 	float : left;
 	width : 150px;
 }
 
-#container article .sec .irc{
+#container article .section .irc{
 	margin : 0 0 0 20px;
 }
 
-#container article .sec .pop {
+#container article .section .pop {
 	color : rgb(83,200,221);
 }
 
-#container article .sec .pop span{
+#container article .section .pop span{
 	color : rgb(220,220,220);
 }
 
-#container article .sec:hover {
+#container article .section:hover {
 	background : rgb(40,40,40);
 	color : rgb(230,230,230);
 }
 
-#container article .sec table {
+#container article .section table {
 	float : right;
 	text-align : right;
 	width : 60%;
 	padding : 5px;
 }
 
-#container article .sec table:hover {
+#container article .section table:hover {
 	background : rgb(40,40,40);
 	color : rgb(230,230,230);
 }
@@ -226,46 +226,46 @@ body#status #container article .lib:hover {
 }
 /*  end library-related element properties */
 
-#container article .sec .status td {
+#container article .section .status td {
 	width : 17%;
 	padding : 4px;
 	border-right : 1px solid rgb(60,60,60);
 }
 
-#container article .sec .status tr.bold {
+#container article .section .status tr.bold {
 	text-align : center;
 	font-weight : bold;
 }
 
-#container article .sec .status tr.alt td {
+#container article .section .status tr.alt td {
 	background-color: rgb(50,50,50);
 }
 
-#container article .sec .status td.top {
+#container article .section .status td.top {
 	border-bottom : 1px solid rgb(60,60,60);
 	border-right : 0;
 }
 
-#container article .sec .status td.border {
+#container article .section .status td.border {
 	border-bottom : 1px solid rgb(60,60,60);
 }
 
-#container article .sec .status td.border2 {
+#container article .section .status td.border2 {
 	border-left : 1px solid rgb(60,60,60);
 }
 
-#container article .sec .status td.left {
+#container article .section .status td.left {
 	width : 50%;
 	text-align : left;
 	border-left : 1px solid rgb(60,60,60);
 }
 
-#container article .sec table.left {
+#container article .section table.left {
 	float : left;
 	width : 38%;
 }
 
-body#status #container article .sec:hover {
+body#status #container article .section:hover {
 	background : inherit;
 	color : inherit;
 }
@@ -293,24 +293,7 @@ body#articles #container nav a.articles {
 	background : rgb(40,40,40) url(../images/arrow.gif) no-repeat center right;
 }
 
-body#home #container nav a.home:hover,
-body#info #container nav a.info:hover,
-body#status #container nav a.status:hover,
-body#stat #container nav a.stat:hover,
-body#wargames #container nav a.wargames:hover,
-body#contact #container nav a.contact:hover,
-body#paste #container nav a.paste:hover,
-body#faq #container nav a.faq:hover,
-body#staff #container nav a.staff:hover,
-body#history #container nav a.history:hover,
-body#bbs #container nav a.bbs:hover,
-body#snm #container nav a.snm:hover,
-body#vpn #container nav a.vpn:hover,
-body#irpg #container nav a.irpg:hover,
-body#qdb #container nav a.qdb:hover,
-body#links #container nav a.links:hover,
-body#library #container nav a.library:hover,
-body#articles #container nav a.articles:hover {
+nav a:hover {
 	color : rgb(20,20,20);
 	background : rgb(83,200,221) url(../images/arrow.gif) no-repeat center right;
 }
