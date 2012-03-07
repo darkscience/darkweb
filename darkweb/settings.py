@@ -159,3 +159,8 @@ LOGGING = {
 }
 
 WIKI_DEFAULT_USER_PERMISSION = 2
+
+RESTRUCTUREDTEXT_FILTER_SETTINGS = {
+    'initial_header_level': 2
+}
+
