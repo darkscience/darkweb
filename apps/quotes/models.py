@@ -22,6 +22,9 @@ class Line(models.Model):
             return '* %s %s' % (self.sender, self.message)
         return '<%s> %s' % (self.sender, self.message)
 
+    class Meta:
+        ordering = ['id']
+
 class VoteLog(models.Model):
     quote = models.ForeignKey(Quote)
     identifier = models.CharField(max_length=32)
