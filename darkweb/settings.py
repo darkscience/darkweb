@@ -132,6 +132,7 @@ INSTALLED_APPS = (
     'lithium.wiki',
     'quotes',
     'darkweb.utils',
+    'south',
 )
 
 # A sample logging configuration. The only tangible logging
