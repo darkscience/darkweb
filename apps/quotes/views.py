@@ -74,3 +74,7 @@ class ListQuotes(ListView):
 
 class TopQuotes(ListQuotes):
     queryset = Quote.objects.order_by('-votes')
+
+class RandomQuotes(ListQuotes):
+    queryset = Quote.objects.order_by('?')
+
