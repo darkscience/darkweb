@@ -27,5 +27,5 @@ class Line(models.Model):
 
 class VoteLog(models.Model):
     quote = models.ForeignKey(Quote)
-    identifier = models.CharField(max_length=32)
+    identifier = models.CharField(max_length=40)
 
