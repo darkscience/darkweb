@@ -25,6 +25,8 @@ body {
 	font : normal 12px Verdana, sans-serif, "Times New Roman";
 }
 
+::selection { background: #245d85; color: #fff; text-shadow: none; }
+
 img {
 	border : none;
 }
@@ -55,7 +57,6 @@ h2 {
 	margin : 0 0 6px 0;
 	padding : 0 0 4px 0;
 	border-bottom : 1px solid rgb(83,200,221);
-	font : italic 0.9em Verdana, sans-serif, "Times New Roman";
 }
 
 hr {
@@ -160,14 +161,14 @@ nav a:hover {
 
 #container article .section {
 	padding : 0px 5px 5px 5px;
-	margin : 0 0 20px 0;
+	margin : 10px 0;
 }
 
 #container article .section .irc ul.padding li {
 	margin : 0 0 0 15px;
 }
 
-#container article .section ul {
+#container article ul {
 	margin : 0 0 0 15px;
 	list-style-type : square;
 }
@@ -307,12 +308,21 @@ article h1 {
     font-size: 22px;
 }
 
-
 article h2 {
 	margin : 0 0 6px 0;
 	padding : 0 0 4px 0;
 	border-bottom : 1px solid rgb(83,200,221);
-	font: 18px Verdana, sans-serif, "Times New Roman";
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size-adjust:0.5;
+    font-weight:200;
+    font-style:normal;
+    margin: 5px 0;
+}
+
+p {
+    margin: 5px 0;
 }
 
 table {
