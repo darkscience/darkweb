@@ -10,6 +10,11 @@
     width: 600px;
 }
 
+.forum-post .codehilite pre {
+    width: 500px;
+    background: #282828;
+}
+
 .codehilite pre:hover, .highlight pre:hover {
     background: #212121;
     border: 1px solid #9E9E9E;

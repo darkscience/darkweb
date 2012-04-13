@@ -72,7 +72,7 @@ hr {
 .running {
 	text-transform: lowercase;
 }
-.center {
+.center, .align-center {
 	display: block;
 	margin: 0 auto;
 }
@@ -196,9 +196,9 @@ nav a:hover {
 }
 
 #container article .section table {
-	float : right;
+	/*float : right;
 	text-align : right;
-	width : 60%;
+	width : 60%;*/
 	padding : 5px;
 }
 
@@ -322,7 +322,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-    margin: 5px 0;
+    margin: 10px 0;
 }
 
 table {
@@ -364,6 +364,10 @@ input[type="text"], textarea {
     color: #fff;
 }
 
+textarea {
+    font-family: monospace;
+}
+
 ul.quote {
     list-style: none;
     margin-bottom: 10px;
@@ -384,3 +388,57 @@ ul.quote li.action {
 .pagination .next {
     float: right;
 }
+
+/* Forum */
+table.forums {
+    width: 700px;
+}
+
+th {
+    background: #111;
+}
+
+tr.even {
+    background: #282828;
+}
+
+tr.sticky {
+    background: #3C3C3C;
+}
+
+.forum-post {
+    background: #212121;
+    border-radius: 5px 5px 5px 5px;
+    border: 1px solid #3C3C3C;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+.forum-post:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.forum-post .body {
+    width: 550px;
+}
+
+.forum-post .meta {
+    border-left: 1px solid #3C3C3C;
+    padding-left: 10px;
+    width: 120px;
+    float: right;
+}
+
+.forum-post .meta img {
+    width: 70px;
+    height: 70px;
+}
+
+.staff {
+    background: #3C3C3C;
+}
+
