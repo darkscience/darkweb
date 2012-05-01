@@ -6,6 +6,7 @@
     <link rel='shortcut icon' href='http://darkscience.ws/images/favicon.ico' type='image/x-icon' />
     <link rel='stylesheet' href='{{ STATIC_URL }}css/master.css' type='text/css' media='screen' />
     <link rel='stylesheet' href='{{ STATIC_URL }}css/pygment.css' type='text/css' media='all' />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -30,6 +31,17 @@
             <a href="/wiki/wargames/">Wargames</a>
             <a href="/wiki/history/">History</a>
             <!--a href="/wiki/">Wiki</a-->
+          {% if user.is_authenticated %}
+            <a href="{% url logout %}">Logout</a>
+          {% else %}
+            {{ browserid_form.media }}
+
+            <a id="browserid" href="#{#% url browserid.gracefully_degrade %#}">Sign In</a>
+            <form method="POST" action="{% url browserid_verify %}">
+                {% csrf_token %}
+                {{ browserid_form.as_p }}
+            </form>
+          {% endif %}
         </nav>
 
         <article>

@@ -38,6 +38,7 @@ TIME_ZONE = 'Europe/London'
 LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
+SITE_URL = 'http://darkscience.ws'
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -97,6 +98,17 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.Loader',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.core.context_processors.tz",
+    "django.contrib.messages.context_processors.messages",
+    'django_browserid.context_processors.browserid_form',
+)
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -114,6 +126,11 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(PROJECT_DIR, 'templates'),
+)
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'django_browserid.auth.BrowserIDBackend',
 )
 
 INSTALLED_APPS = (
@@ -134,6 +151,7 @@ INSTALLED_APPS = (
     'quotes',
     'darkweb.utils',
     'south',
+    'django_browserid',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -148,7 +166,7 @@ LOGGING = {
         'mail_admins': {
             'level': 'ERROR',
             'class': 'django.utils.log.AdminEmailHandler'
-        }
+        },
     },
     'loggers': {
         'django.request': {
@@ -156,7 +174,7 @@ LOGGING = {
             'level': 'ERROR',
             'propagate': True,
         },
-    }
+    },
 }
 
 if os.environ.get('SENDGRID_USERNAME'):
@@ -172,3 +190,8 @@ RESTRUCTUREDTEXT_FILTER_SETTINGS = {
     'initial_header_level': 2
 }
 
+# BrowserID
+BROWSERID_CREATE_USER = False
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_URL = '/logout/'
+LOGIN_URL = '/'

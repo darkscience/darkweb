@@ -1,8 +1,13 @@
 Django==1.4
 Pygments==1.4
 South==0.7.3
+certifi==0.0.8
+chardet==1.0.1
+distribute==0.6.24
+django-browserid==0.5
 docutils==0.8.1
 gunicorn==0.14.0
 lithium==0.4.4
 psycopg2==2.4.4
+requests==0.11.2
 wsgiref==0.1.2
