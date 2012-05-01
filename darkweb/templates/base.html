@@ -32,6 +32,9 @@
             <a href="/wiki/history/">History</a>
             <!--a href="/wiki/">Wiki</a-->
           {% if user.is_authenticated %}
+            {% if user.is_staff %}
+              <a href="/admin/">Admin</a>
+            {% endif %}
             <a href="{% url logout %}">Logout</a>
           {% else %}
             {{ browserid_form.media }}
