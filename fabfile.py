@@ -10,7 +10,7 @@ env.roledefs.update({
 
 @roles('static')
 def deploy_static():
-    local('python darkweb/manage.py collectstatic')
+    local('python manage.py collectstatic')
     project.rsync_project(
         remote_dir = env.remote_static_root,
         local_dir = env.local_static_root,
