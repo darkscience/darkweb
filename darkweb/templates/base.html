@@ -33,6 +33,7 @@
             <!--a href="/wiki/">Wiki</a-->
           {% if user.is_authenticated %}
             {% if user.is_staff %}
+              <a href="/wiki/staff/children/">Staff Pages</a>
               <a href="/admin/">Admin</a>
             {% endif %}
             <a href="{% url logout %}">Logout</a>
