@@ -148,6 +148,7 @@ INSTALLED_APPS = (
     'django.contrib.markup',
     'gunicorn',
     'lithium.wiki',
+    'lithium.forum',
     'quotes',
     'darkweb.utils',
     'south',

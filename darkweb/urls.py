@@ -6,6 +6,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
+    url(r'^forum/', include('lithium.forum.urls')),
     url(r'^wiki/', include('lithium.wiki.urls')),
     # Examples:
     # url(r'^$', 'darkweb.views.home', name='home'),

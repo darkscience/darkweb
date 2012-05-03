@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load i18n forum markup %}
+
+{% block content %}
+{% render_parent_list thread.get_parent_list %}
+<h2>
+    <a href="{{ thread.get_absolute_url }}">{{ thread }}</a> {% if not thread.is_locked and can_reply %}(<a href="{{ thread.get_reply_url }}">{% trans 'reply' %}</a>){% endif %}
+</h2>
+
+{% if posts %}
+  {% for post in posts %}
+    <div class="forum-post {% cycle 'odd' 'even' %}{% if post.author.is_staff %}
+      staff{% endif %}" id="{{ post.pk }}">
+        <!--h3>Post by {% if post.author %}<a href="{{
+            post.author.get_absolute_url }}">{{ post.author }}</a>{% else
+        %}Anonymous{% endif %} at {{ post.pub_date|date:"D N d, Y h:i a"
+        }}</h3-->
+        <div class="meta">
+          {% if post.author %}
+            <img
+            src="https://secure.gravatar.com/avatar/d200a17dd269fd4001bacb11662dab4b?s=70&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png" />
+            <p><a href="{{ post.author.get_absolute_url }}">{{ post.author }}</a></p>
+
+            Posts: {{ post.author.forum_post_set.count }}
+          {% endif %}
+
+          {#{ post.pub_date|date:"D N d, Y h:i a" }#}
+        </div>
+
+        <div class="body">
+            {{ post.content|markdown:'codehilite' }}
+        </div>
+    </div>
+  {% endfor %}
+{% endif %}
+
+{% if form %}
+<h3>{% trans 'Reply to' %} {{ thread }}</h3>
+{% render_reply_form thread form %}
+{% endif %}
+
+{% endblock %}
