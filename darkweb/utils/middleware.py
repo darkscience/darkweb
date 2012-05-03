@@ -10,7 +10,8 @@ class RobotsMiddleware(object):
         return bool(UA_BOT_REGEX.search(request.META['HTTP_USER_AGENT']))
 
     def process_request(self, request):
-        if request.path.startswith('/quotes') and self.is_bot(request):
+        if self.is_bot(request) and (request.path.startswith('/quotes') or
+                request.path.startswith('/forum')):
             return HttpResponse()
 
     def process_response(self, request, response):

@@ -5,6 +5,11 @@ from django.http import HttpResponse
 from django.contrib import admin
 admin.autodiscover()
 
+ROBOTS = """User-agent: *
+Disallow: /quotes/
+Disallow: /forum/
+"""
+
 urlpatterns = patterns('',
     url(r'^forum/', include('lithium.forum.urls')),
     url(r'^wiki/', include('lithium.wiki.urls')),
@@ -22,5 +27,5 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^robots\.txt$', lambda r: HttpResponse("User-agent: *\nDisallow: /quotes/", mimetype="text/plain")),
+    url(r'^robots\.txt$', lambda r: HttpResponse(ROBOTS, mimetype="text/plain")),
 )
