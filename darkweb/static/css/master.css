@@ -22,7 +22,11 @@ body {
 	text-align : center;
 	color : rgb(220,220,220);
 	background : rgb(0,0,0) url('../images/background_repeat.jpg');
-	font : normal 12px Verdana, sans-serif, "Times New Roman";
+	/*font : normal 12px Verdana, sans-serif, "Times New Roman";*/
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+    font-weight:500; font-style:normal;
+    font-size: 13px;
+
 }
 
 ::selection { background: #245d85; color: #fff; text-shadow: none; }
@@ -329,6 +333,7 @@ table {
     margin-bottom: 15px;
     border-collapse: collapse;
     border-spacing: 0;
+    width: 100%;
 }
 
 table caption {
@@ -338,10 +343,28 @@ table caption {
 
 table, th, td {
     border: 1px solid #9E9E9E;
+    border: 0;
 }
 
-td, th {
-    padding: 5px;
+thead {
+    border-bottom: 2px solid #727E8C;
+}
+
+th {
+    padding: 10px 5px;
+}
+
+.thread {
+    min-width: 200px;
+}
+
+td {
+    padding: 10px 5px;
+    border-bottom: 1px solid #727E8C;
+}
+
+tr:hover {
+    background: #282828;
 }
 
 article .note {
@@ -394,16 +417,8 @@ table.forums {
     width: 700px;
 }
 
-th {
-    background: #111;
-}
-
-tr.even {
+.sticky {
     background: #282828;
-}
-
-tr.sticky {
-    background: #3C3C3C;
 }
 
 .forum-post {
