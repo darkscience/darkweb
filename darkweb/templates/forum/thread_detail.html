@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n forum markup %}
+{% load i18n forum markup gravatar %}
 
 {% block content %}
 {% render_parent_list thread.get_parent_list %}
@@ -17,8 +17,7 @@
         }}</h3-->
         <div class="meta">
           {% if post.author %}
-            <img
-            src="https://secure.gravatar.com/avatar/d200a17dd269fd4001bacb11662dab4b?s=70&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png" />
+            <img src="{% gravatar post.author.email 70 %}" />
             <p><a href="{{ post.author.get_absolute_url }}">{{ post.author }}</a></p>
 
             Posts: {{ post.author.forum_post_set.count }}
