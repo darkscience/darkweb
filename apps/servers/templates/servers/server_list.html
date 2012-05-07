@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Servers | Dark Science{% endblock %}
+
+{% block content %}
+    <h1>Servers</h1>
+    <p>
+        You can connect to Dark Science at irc.darkscience.ws on port 6697 with
+        SSL. This is a round robin and will point you to a server. This
+        network is SSL-only, make sure you enable SSL.
+    </p>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Address</th>
+                <th>IPv6</th>
+                <th>Location</th>
+                <th>Admin</th>
+            </tr>
+        </thead>
+        <tbody>
+          {% for server in server_list %}
+            <tr{% if not server.is_online %} class="offline"{% endif %}>
+                <td>{{ server.domain }}</td>
+                <td>{% if server.ipv6 %}✔{% else %}✗{% endif %}</td>
+                <td>{{ server.location }}</td>
+                <td>{{ server.owner }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+
+    <h3>SSL</h3>
+    <p>Our server’s only accept SSL connections, you MUST enable SSL to connect. Our server’s certificates are signed by CAcert. You can find the root certificate at CAcert, these certificates are usually included with a ca-certificates package</p>
+
+    <h3>Tor</h3>
+    <p>You can connect to Dark Science using our tor hidden service with the address uulnil6kctncrbrp.onion, alternativly the DNS record tor.irc.darkscience.ws will resolve to a tor hidden service.</p>
+{% endblock %}

@@ -158,6 +158,7 @@ INSTALLED_APPS = (
     'lithium.wiki',
     'lithium.forum',
     'quotes',
+    'servers',
     'darkweb.utils',
     'south',
     'django_browserid',

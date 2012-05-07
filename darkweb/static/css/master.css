@@ -421,6 +421,11 @@ table.forums {
     background: #282828;
 }
 
+.offline {
+    background: #9D6769;
+    background: #795254;
+}
+
 .forum-post {
     background: #212121;
     border-radius: 5px 5px 5px 5px;
