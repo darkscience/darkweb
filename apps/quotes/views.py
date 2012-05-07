@@ -4,8 +4,9 @@ import json
 from django.views.generic import FormView, RedirectView, ListView, DetailView
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
+from django.core import serializers
 
-from quotes.models import Quote, VoteLog
+from quotes.models import Quote, VoteLog, Line
 from quotes.forms import QuoteForm
 
 class QuoteDetail(DetailView):
@@ -32,6 +33,12 @@ class QuoteDetail(DetailView):
             return HttpResponse(json.dumps(result), mimetype='application/json')
 
         return super(QuoteDetail, self).get(request, **kwargs)
+
+
+class RandomQuoteDetail(QuoteDetail):
+    def get_object(self):
+        return Quote.objects.order_by('?')[0]
+
 
 class RandomQuote(QuoteDetail):
     def get_object(self):

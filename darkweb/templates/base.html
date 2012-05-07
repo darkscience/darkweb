@@ -7,6 +7,38 @@
     <link rel='stylesheet' href='{{ STATIC_URL }}css/master.css' type='text/css' media='screen' />
     <link rel='stylesheet' href='{{ STATIC_URL }}css/pygment.css' type='text/css' media='all' />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var lines = [];
+
+        function getQuote() {
+            $.getJSON('/quotes/api/random/', function(data) {
+                lines = data['lines'];
+                showNextQuote();
+            });
+        }
+
+        function showNextQuote() {
+            if (lines.length == 0) {
+                getQuote();
+            } else {
+                line = lines.pop(0);
+                data = line['str'];
+
+                trunc_data = data.substring(0, Math.min(80, data.length));
+                if (trunc_data.length < data.length) {
+                    trunc_data += '...';
+                }
+
+                $("#quote").text(trunc_data);
+
+                setTimeout(showNextQuote, 5000);
+            }
+        }
+
+        $(document).ready(function() {
+            getQuote();
+        });
+    </script>
 </head>
 
 <body>
@@ -14,8 +46,7 @@
         <header>
             <a href='./' id='logo'></a>
 
-            {% load quote %}
-            <div id="quote">{% random_quote_line %}</div>
+            <div id="quote"></div>
         </header>
 
         <nav>
