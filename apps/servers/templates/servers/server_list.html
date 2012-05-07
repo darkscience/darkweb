@@ -24,7 +24,7 @@
             <tr{% if not server.is_online %} class="offline"{% endif %}>
                 <td>{{ server.domain }}</td>
                 <td>{% if server.ipv6 %}✔{% else %}✗{% endif %}</td>
-                <td>{{ server.location }}</td>
+                <td><img src="{{ STATIC_URL }}/flags/{{ server.location|lower }}.png" /> {{ server.get_location_display }}</td>
                 <td>{{ server.owner }}</td>
             </tr>
           {% endfor %}
