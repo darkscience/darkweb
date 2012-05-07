@@ -8,7 +8,7 @@ distribute==0.6.24
 django-browserid==0.5
 docutils==0.8.1
 gunicorn==0.14.0
--e git+https://github.com/kylef/lithium.git@4503e748bb7972dd3979e9a5778c56a556642c9b#egg=lithium-dev
+-e git+https://github.com/kylef/lithium.git@5a22b6046ee0b82ae29838966916bcb5b37fcd16#egg=lithium-dev
 psycopg2==2.4.4
 requests==0.11.2
 wsgiref==0.1.2
