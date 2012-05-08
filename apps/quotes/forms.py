@@ -1,9 +1,7 @@
-import re
 from django import forms
+
 from quotes.models import Quote, Line
 
-MESSAGE_REGEX = re.compile(r'(\[[\d\:]+\] )?\<?[~&@%+\s]?(?P<sender>[\S]+)[\>\:] (?P<message>.+)')
-ACTION_REGEX =  re.compile(r'(\[[\d\:]+\] )?(\* )?(?P<sender>[\w\d]+) (?P<message>.+)')
 
 class QuoteForm(forms.Form):
     quote = forms.CharField(widget=forms.Textarea)
@@ -12,37 +10,25 @@ class QuoteForm(forms.Form):
         result = super(QuoteForm, self).is_valid()
 
         if result:
-            x = 1
+            line_no = 1
             for l in self.cleaned_data['quote'].splitlines():
-                if not (ACTION_REGEX.match(l) or MESSAGE_REGEX.match(l)):
+                try:
+                    Line.parse(l)
+                except ValueError:
                     if 'quote' not in self.errors:
                         self.errors['quote'] = []
-                    self.errors['quote'].append('Line %s is invalid. Please show the line on #darkscience for help.' % x)
+
+                    self.errors['quote'].append('Line %s is invalid. Please ' \
+                            'show the line on #darkscience for help.' % line_no)
                     result = False
-                x += 1
+                line_no += 1
 
         return result
 
     def save(self):
+        lines = [Line.parse(l) for l in self.cleaned_data['quote'].splitlines()]
+
         quote = Quote()
-        lines = []
-
-        for l in self.cleaned_data['quote'].splitlines():
-            line = None
-
-            m = ACTION_REGEX.match(l)
-            if m:
-                line = Line(is_action=True, **m.groupdict())
-            else:
-                m = MESSAGE_REGEX.match(l)
-                if m:
-                    line = Line(**m.groupdict())
-
-            if not line:
-                raise ValueError("Line parse failure %s" % l)
-
-            lines.append(line)
-
         quote.save()
 
         for line in lines:

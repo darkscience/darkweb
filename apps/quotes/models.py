@@ -1,4 +1,8 @@
+import re
 from django.db import models
+
+MESSAGE_REGEX = re.compile(r'(\[[\d\:]+\] )?\<?[~&@%+\s]?(?P<sender>[\S]+)[\>\:] (?P<message>.+)')
+ACTION_REGEX =  re.compile(r'(\[[\d\:]+\] )?(\* )?(?P<sender>[\w\d]+) (?P<message>.+)')
 
 class Quote(models.Model):
     votes = models.IntegerField(default=0)
@@ -24,6 +28,18 @@ class Line(models.Model):
 
     class Meta:
         ordering = ['id']
+
+    @classmethod
+    def parse(cls, line):
+        m = ACTION_REGEX.match(line)
+        if m:
+            return cls(is_action=True, **m.groupdict())
+
+        m = MESSAGE_REGEX.match(line)
+        if m:
+            return cls(**m.groupdict())
+
+        raise ValueError("Line parse failure %s" % line)
 
 class VoteLog(models.Model):
     quote = models.ForeignKey(Quote)
