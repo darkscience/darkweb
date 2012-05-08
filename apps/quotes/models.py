@@ -1,8 +1,8 @@
 import re
 from django.db import models
 
-MESSAGE_REGEX = re.compile(r'(\[?[\d\:]+\]? )?\<?[~&@%+\s]?(?P<sender>[\S]+)[\>\:] (?P<message>.+)')
-ACTION_REGEX =  re.compile(r'(\[?[\d\:]+\]?)?(\s+\*)? (?P<sender>[\w\d]+) (?P<message>.+)')
+MESSAGE_REGEX = re.compile(r'(\[?[\d\:]+\]?\s+)?\<?[~&@%+\s]?(?P<sender>[\S]+)\s*[\>\:\|] (?P<message>.+)')
+ACTION_REGEX =  re.compile(r'(\[?[\d\:]+\]?)?(\s+\*( \|)?)? (?P<sender>[\w\d]+) (?P<message>.+)')
 
 class Quote(models.Model):
     votes = models.IntegerField(default=0)

@@ -27,3 +27,9 @@ class SimpleTest(TestCase):
     def test_line_parse_textual_action(self):
         self.check_action('[18:07:08] kylef loves github')
 
+    def test_line_parse_weechat_message(self):
+        self.check_message('16:58:44     ~kylef | hi there')
+
+    def test_line_parse_weechat_action(self):
+        self.check_action('18:19:53          * | kylef loves github')
+
