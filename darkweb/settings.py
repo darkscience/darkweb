@@ -44,7 +44,7 @@ TIME_ZONE = 'Europe/London'
 LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
-SITE_URL = 'http://darkscience.ws'
+SITE_URL = 'http://darkscience.net'
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
