@@ -25,4 +25,4 @@ class Server(models.Model):
 
     @property
     def domain(self):
-        return u'%s.darkscience.ws' % self.name
+        return u'%s.darkscience.net' % self.name
