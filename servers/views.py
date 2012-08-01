@@ -2,6 +2,9 @@ from django.views.generic import ListView
 
 from servers.models import Server
 
+class ServerListView(ListView):
+    queryset = Server.objects.filter(tags__name='irc')
+    
 class DNSView(ListView):
     template_name = 'servers/dns'
     model = Server
