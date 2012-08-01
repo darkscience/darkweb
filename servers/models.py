@@ -36,3 +36,17 @@ class Server(models.Model):
     @property
     def domain(self):
         return '%s.darkscience.net' % self.name
+
+    def as_dict(self):
+        result = {}
+
+        for field in ('name', 'ipv4', 'ipv6', 'tor', 'ssh_rsa_fingerprint',
+                'ssh_dsa_fingerprint', 'is_online'):
+            if getattr(self, field, None):
+                result[field] = getattr(self, field)
+
+        tags = [tag.name for tag in self.tags.all()]
+        if tags and self.is_online:
+            result['tags'] = tags
+
+        return result
