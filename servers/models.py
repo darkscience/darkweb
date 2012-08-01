@@ -16,7 +16,7 @@ class Server(models.Model):
     name = models.CharField(max_length=16)
     owner = models.ForeignKey(User)
     location = models.CharField(max_length=2, choices=COUNTRIES)
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, blank=True)
 
     ipv4 = models.GenericIPAddressField(verbose_name='IPv4', protocol='ipv4',
             blank=True, null=True)
@@ -24,6 +24,9 @@ class Server(models.Model):
             blank=True, null=True)
 
     tor = models.CharField(max_length=64, blank=True)
+
+    ssh_rsa_fingerprint = models.CharField(max_length=64, blank=True)
+    ssh_dsa_fingerprint = models.CharField(max_length=64, blank=True)
 
     is_online = models.BooleanField(default=False)
 

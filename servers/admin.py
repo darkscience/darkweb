@@ -14,6 +14,9 @@ class ServerAdmin(admin.ModelAdmin):
         ('Addresses', {
             'fields': ('ipv4', 'ipv6', 'tor'),
         }),
+        ('Fingerprints', {
+            'fields': ('ssh_rsa_fingerprint', 'ssh_dsa_fingerprint',),
+        }),
     )
 
 admin.site.register(Tag)
