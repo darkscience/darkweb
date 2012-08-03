@@ -3,6 +3,7 @@ from servers.models import Tag, Server
 
 class ServerAdmin(admin.ModelAdmin):
     list_display = ('name', 'location', 'ipv4', 'ipv6',)
+    list_filter = ('tags',)
 
     fieldsets = (
         (None, {
