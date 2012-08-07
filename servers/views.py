@@ -2,17 +2,20 @@ import json
 
 from django.views.generic import ListView
 from django.http import HttpResponse
+from django.utils.cache import add_never_cache_headers
 
 from servers.models import Server
 
 class ServerListView(ListView):
     queryset = Server.objects.filter(tags__name='irc')
-    
+
     def get(self, request, *args, **kwargs):
         if request.META['HTTP_ACCEPT'] == 'application/json':
             servers = [server.as_dict() for server in Server.objects.all()]
-            return HttpResponse(json.dumps(servers),
+            response = HttpResponse(json.dumps(servers),
                 content_type='application/json')
+            add_never_cache_headers(response)
+            return response
 
         return super(ServerListView, self).get(request, *args, **kwargs)
 
