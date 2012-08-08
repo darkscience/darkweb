@@ -41,7 +41,7 @@ class Server(models.Model):
         result = {}
 
         for field in ('name', 'ipv4', 'ipv6', 'tor', 'ssh_rsa_fingerprint',
-                'ssh_dsa_fingerprint', 'is_online'):
+                'ssh_dsa_fingerprint', 'is_online', 'location', 'owner'):
             if getattr(self, field, None):
                 result[field] = getattr(self, field)
 
