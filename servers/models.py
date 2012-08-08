@@ -41,7 +41,7 @@ class Server(models.Model):
         result = {}
 
         for field in ('name', 'ipv4', 'ipv6', 'tor', 'ssh_rsa_fingerprint',
-                'ssh_dsa_fingerprint', 'is_online', 'location', 'owner'):
+                'ssh_dsa_fingerprint', 'is_online', 'location'):
             if getattr(self, field, None):
                 result[field] = getattr(self, field)
 
@@ -49,4 +49,5 @@ class Server(models.Model):
         if tags and self.is_online:
             result['tags'] = tags
 
+        result['owner'] = self.owner.username
         return result
