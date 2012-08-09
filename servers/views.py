@@ -10,7 +10,7 @@ class ServerListView(ListView):
     queryset = Server.objects.filter(tags__name='irc')
 
     def get(self, request, *args, **kwargs):
-        if request.META['HTTP_ACCEPT'] == 'application/json':
+        if request.META.get('HTTP_ACCEPT', None) == 'application/json':
             servers = [server.as_dict() for server in Server.objects.all()]
             response = HttpResponse(json.dumps(servers),
                 content_type='application/json')
