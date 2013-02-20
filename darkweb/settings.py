@@ -1,6 +1,7 @@
 # Django settings for darkweb project.
 
 import os
+import dj_database_url
 
 PROJECT_DIR = os.path.abspath(os.path.dirname(os.path.abspath(__file__)))
 
@@ -13,16 +14,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': os.path.join(PROJECT_DIR, 'local.db'),                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }
-}
+DATABASES = {'default': dj_database_url.config()}
 
 CACHES = {
     'default': {
@@ -74,7 +66,7 @@ STATIC_ROOT = '/tmp/static.darkscience.ws'
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = 'http://static.darkscience.ws/'
+STATIC_URL = 'http://static.darkscience.net/'
 
 # URL prefix for admin static files -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.
@@ -138,6 +130,10 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(PROJECT_DIR, 'templates'),
 )
+
+ALLOWED_HOSTS = [
+    'darkscience.net',
+]
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
