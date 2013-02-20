@@ -1,4 +1,4 @@
-Django==1.4
+Django==1.4.4
 Markdown==2.1.1
 Pygments==1.4
 South==0.7.3
