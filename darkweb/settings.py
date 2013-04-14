@@ -39,7 +39,7 @@ TIME_ZONE = 'Europe/London'
 LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
-SITE_URL = 'http://darkscience.net'
+SITE_URL = 'http://www.darkscience.net'
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -133,6 +133,7 @@ TEMPLATE_DIRS = (
 
 ALLOWED_HOSTS = [
     'darkscience.net',
+    'www.darkscience.net',
 ]
 
 AUTHENTICATION_BACKENDS = (
