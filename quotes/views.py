@@ -13,7 +13,7 @@ class QuoteDetail(DetailView):
     model = Quote
 
     def get(self, request, **kwargs):
-        if 'application/json' in request.META.get('HTTP_ACCEPT'):
+        if 'application/json' == request.META.get('HTTP_ACCEPT', None):
             quote = self.get_object()
             result = {
                 "pk": quote.pk,
