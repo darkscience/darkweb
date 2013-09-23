@@ -5,6 +5,7 @@ from django.views.generic import FormView, RedirectView, ListView, DetailView
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 from django.core import serializers
+from django.utils.cache import patch_vary_headers
 
 from quotes.models import Quote, VoteLog, Line
 from quotes.forms import QuoteForm
@@ -30,9 +31,12 @@ class QuoteDetail(DetailView):
                     'is_action':line.is_action,
                     'str': unicode(line),
                 })
-            return HttpResponse(json.dumps(result), mimetype='application/json')
+            response = HttpResponse(json.dumps(result), mimetype='application/json')
+        else:
+            response = super(QuoteDetail, self).get(request, **kwargs)
 
-        return super(QuoteDetail, self).get(request, **kwargs)
+        patch_vary_headers(response, ['Accept'])
+        return response
 
 
 class RandomQuoteDetail(QuoteDetail):
