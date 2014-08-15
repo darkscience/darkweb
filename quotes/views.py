@@ -90,7 +90,7 @@ class ListQuotes(ListView):
 
 
 class TopQuotes(ListQuotes):
-    queryset = Quote.objects.order_by('-votes')
+    queryset = Quote.objects.order_by('-votes', '-pk')
 
 class RandomQuotes(ListQuotes):
     queryset = Quote.objects.order_by('?')
