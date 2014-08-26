@@ -3,14 +3,14 @@ from servers.models import Tag, Server
 
 class ServerAdmin(admin.ModelAdmin):
     list_display = ('name', 'location', 'ipv4', 'ipv6',)
-    list_filter = ('tags',)
+    list_filter = ('tags', 'owner',)
 
     fieldsets = (
         (None, {
             'fields': ('name', 'owner', 'location'),
         }),
         ('Status', {
-            'fields': ('is_online', 'tags'), 
+            'fields': ('is_online', 'tags'),
         }),
         ('Addresses', {
             'fields': ('ipv4', 'ipv6', 'tor'),
