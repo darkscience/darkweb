@@ -18,7 +18,7 @@ DATABASES = {'default': dj_database_url.config()}
 
 CACHES = {
     'default': {
-        'BACKEND': 'django_pylibmc.memcached.PyLibMCCache'
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
     }
 }
 

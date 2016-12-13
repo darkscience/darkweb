@@ -13,5 +13,3 @@ lithium==1.0
 psycopg2==2.4.4
 requests==0.11.2
 wsgiref==0.1.2
-pylibmc==1.2.2
-django-pylibmc-sasl==0.2.4
