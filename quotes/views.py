@@ -73,9 +73,21 @@ class ListQuotes(ListView):
     queryset = Quote.objects.order_by('-pk')
     paginate_by = 5
 
+    def get(self, request, **kwargs):
+        if 'application/json' == request.META.get('HTTP_ACCEPT', None):
+            quotes = self.get_queryset()
+            quotes = [quote.to_dict() for quote in quotes]
+            response = HttpResponse(json.dumps(quotes), mimetype='application/json')
+        else:
+            response = super(QuoteDetail, self).get(request, **kwargs)
+
+        patch_vary_headers(response, ['Accept'])
+        return response
+
 
 class TopQuotes(ListQuotes):
     queryset = Quote.objects.order_by('-votes', '-pk')
+
 
 class RandomQuotes(ListQuotes):
     queryset = Quote.objects.order_by('?')
