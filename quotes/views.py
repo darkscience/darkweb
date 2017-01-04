@@ -64,7 +64,7 @@ class AddQuoteView(FormView):
 class VoteView(RedirectView):#, SingleObjectMixin):
     up = True
 
-    def get_redirect_url(self, pk):
+    def vote(self, pk):
         quote = get_object_or_404(Quote, pk=pk)
 
         if self.request.user.is_authenticated():
@@ -83,6 +83,20 @@ class VoteView(RedirectView):#, SingleObjectMixin):
             log.save()
             quote.save()
 
+        return quote
+
+    def get(self, request, pk):
+        if 'application/json' == request.META.get('HTTP_ACCEPT', None):
+            quote = self.vote(pk)
+            response = HttpResponse(json.dumps(quote.to_dict()), mimetype='application/json')
+        else:
+            response = super(VoteView, self).get(request, pk=pk)
+
+        patch_vary_headers(response, ['Accept'])
+        return response
+
+    def get_redirect_url(self, pk):
+        quote = self.vote(pk)
         return quote.get_absolute_url()
 
 
