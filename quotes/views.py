@@ -59,7 +59,15 @@ class AddQuoteView(FormView):
 
     def form_valid(self, form):
         self.object = form.save()
-        return super(AddQuoteView, self).form_valid(form)
+
+        if 'application/json' == self.request.META.get('HTTP_ACCEPT', None):
+            response = HttpResponse(json.dumps(self.object.to_dict()), mimetype='application/json')
+        else:
+            response = super(AddQuoteView, self).form_valid(form)
+
+        patch_vary_headers(response, ['Accept'])
+
+        return response
 
 class VoteView(RedirectView):#, SingleObjectMixin):
     up = True
