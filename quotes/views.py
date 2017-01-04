@@ -6,9 +6,18 @@ from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 from django.core import serializers
 from django.utils.cache import patch_vary_headers
+from django.views.decorators.http import etag
+from django.utils.decorators import method_decorator
 
 from quotes.models import Quote, VoteLog, Line
 from quotes.forms import QuoteForm
+
+
+def quotes_etag(request, *args, **kwargs):
+    quotes = [quote.to_dict() for quote in Quote.objects.order_by('pk')]
+    payload = json.dumps(quotes)
+    return hashlib.md5(payload).hexdigest()
+
 
 class QuoteDetail(DetailView):
     model = Quote
@@ -73,6 +82,7 @@ class ListQuotes(ListView):
     queryset = Quote.objects.order_by('-pk')
     paginate_by = 5
 
+    @method_decorator(etag(quotes_etag))
     def get(self, request, **kwargs):
         if 'application/json' == request.META.get('HTTP_ACCEPT', None):
             quotes = self.get_queryset()
