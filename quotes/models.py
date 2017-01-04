@@ -21,6 +21,8 @@ class Quote(models.Model):
             "upload_time": self.upload_time.isoformat(),
             "lines": [],
             "url": self.get_absolute_url(),
+            "upvote_url": self.get_absolute_url() + 'up/',
+            "downvote_url": self.get_absolute_url() + 'down/',
             "lines": [line.to_dict() for line in self.line_set.all()]
         }
 
