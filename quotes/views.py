@@ -79,7 +79,7 @@ class ListQuotes(ListView):
             quotes = [quote.to_dict() for quote in quotes]
             response = HttpResponse(json.dumps(quotes), mimetype='application/json')
         else:
-            response = super(QuoteDetail, self).get(request, **kwargs)
+            response = super(ListQuotes, self).get(request, **kwargs)
 
         patch_vary_headers(response, ['Accept'])
         return response
