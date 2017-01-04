@@ -134,6 +134,7 @@ TEMPLATE_DIRS = (
 ALLOWED_HOSTS = [
     'darkscience.net',
     'www.darkscience.net',
+    'quotes.darkscience.net',
 ]
 
 AUTHENTICATION_BACKENDS = (
