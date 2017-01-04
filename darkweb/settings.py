@@ -111,6 +111,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -162,6 +163,7 @@ INSTALLED_APPS = (
     'servers',
     'darkweb.utils',
     'south',
+    'corsheaders',
     'django_browserid',
 )
 
@@ -209,3 +211,13 @@ BROWSERID_CREATE_USER = True
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_URL = '/logout/'
 LOGIN_URL = '/'
+
+# CORs
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ORIGIN_WHITELIST = (
+    'www.darkscience.net',
+    'darkscience.net',
+    'darkscience.rigidapp.com',
+)
