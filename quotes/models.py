@@ -14,6 +14,17 @@ class Quote(models.Model):
     def get_absolute_url(self):
         return '/quotes/%s/' % self.id
 
+    def to_dict(self):
+        return {
+            "pk": self.pk,
+            "votes": self.votes,
+            "upload_time": self.upload_time.isoformat(),
+            "lines": [],
+            "url": self.get_absolute_url(),
+            "lines": [line.to_dict() for line in self.line_set.all()]
+        }
+
+
 class Line(models.Model):
     sender = models.CharField(max_length=16)
     message = models.CharField(max_length=500)
@@ -40,6 +51,16 @@ class Line(models.Model):
             return cls(**m.groupdict())
 
         raise ValueError("Line parse failure %s" % line)
+
+    def to_dict(self):
+        return {
+            'pk': self.pk,
+            'sender': self.sender,
+            'message': self.message,
+            'is_action': self.is_action,
+            'str': unicode(self),
+        }
+
 
 class VoteLog(models.Model):
     quote = models.ForeignKey(Quote)

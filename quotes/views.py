@@ -15,23 +15,8 @@ class QuoteDetail(DetailView):
 
     def get(self, request, **kwargs):
         if 'application/json' == request.META.get('HTTP_ACCEPT', None):
-            quote = self.get_object()
-            result = {
-                "pk": quote.pk,
-                "votes": quote.votes,
-                "upload_time": quote.upload_time.isoformat(),
-                "lines": [],
-                "url": quote.get_absolute_url(),
-            }
-            for line in quote.line_set.all():
-                result['lines'].append({
-                    'pk': line.pk,
-                    'sender': line.sender,
-                    'message': line.message,
-                    'is_action':line.is_action,
-                    'str': unicode(line),
-                })
-            response = HttpResponse(json.dumps(result), mimetype='application/json')
+            quote = self.get_object().to_dict()
+            response = HttpResponse(json.dumps(quote), mimetype='application/json')
         else:
             response = super(QuoteDetail, self).get(request, **kwargs)
 
