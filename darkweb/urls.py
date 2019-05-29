@@ -18,10 +18,6 @@ urlpatterns = patterns('',
     # url(r'^darkweb/', include('darkweb.foo.urls')),
     url(r'^quotes/', include('quotes.urls')),
 
-    url(r'^browserid/', include('django_browserid.urls')),
-    url(r'^logout/', 'django.contrib.auth.views.logout', {'next_page': '/'},
-        name='logout'),
-
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

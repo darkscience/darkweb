@@ -5,7 +5,6 @@ South==0.7.3
 certifi==0.0.8
 chardet==3.0.4
 dj-database-url==0.5.0
-django-browserid==0.5
 docutils==0.8.1
 gunicorn==0.14.0
 lithium==1.0.1

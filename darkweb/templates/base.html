@@ -63,21 +63,6 @@
             <a href="/wiki/history/">History</a>
             <a href="/wiki/dcc/">Code Contest</a>
             <!--a href="/wiki/">Wiki</a-->
-          {% if user.is_authenticated %}
-            {% if user.is_staff %}
-              <a href="/wiki/staff/children/">Staff Pages</a>
-              <a href="/admin/">Admin</a>
-            {% endif %}
-            <a href="{% url logout %}">Logout</a>
-          {% else %}
-            {{ browserid_form.media }}
-
-            <a id="browserid" href="#{#% url browserid.gracefully_degrade %#}">Sign In</a>
-            <form method="POST" action="{% url browserid_verify %}">
-                {% csrf_token %}
-                {{ browserid_form.as_p }}
-            </form>
-          {% endif %}
         </nav>
 
         <article>

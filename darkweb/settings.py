@@ -107,7 +107,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.static",
     "django.core.context_processors.tz",
     "django.contrib.messages.context_processors.messages",
-    'django_browserid.context_processors.browserid_form',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -141,7 +140,6 @@ ALLOWED_HOSTS = [
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-    'django_browserid.auth.BrowserIDBackend',
 )
 
 INSTALLED_APPS = (
@@ -165,7 +163,6 @@ INSTALLED_APPS = (
     'darkweb.utils',
     'south',
     'corsheaders',
-    'django_browserid',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -209,12 +206,6 @@ RESTRUCTUREDTEXT_FILTER_SETTINGS = {
 
 USE_X_FORWARDED_HOST = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-# BrowserID
-BROWSERID_CREATE_USER = True
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_URL = '/logout/'
-LOGIN_URL = '/'
 
 # CORs
 
