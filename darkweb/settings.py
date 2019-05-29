@@ -157,8 +157,6 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'django.contrib.markup',
     'gunicorn',
-    'lithium.wiki',
-    'lithium.forum',
     'quotes',
     'servers',
     'darkweb.utils',
