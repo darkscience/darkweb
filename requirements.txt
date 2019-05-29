@@ -3,7 +3,7 @@ Markdown==2.1.1
 Pygments==1.4
 South==0.7.3
 certifi==0.0.8
-chardet==1.0.1
+chardet==3.0.4
 dj-database-url==0.2.1
 django-browserid==0.5
 docutils==0.8.1
