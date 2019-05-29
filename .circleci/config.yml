@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/circleci
     docker:
-      - image: circleci/python:2.7
+      - image: circleci/python:2.7-node
         environment:
           DATABASE_URL: postgresql://root@localhost/circle_test?sslmode=disable
       - image: circleci/postgres:9.6.2
@@ -21,3 +21,9 @@ jobs:
       - run: |
           source venv/bin/activate
           python manage.py test quotes
+      - run: npm install dredd@10.0.0
+      - run: |
+          source venv/bin/activate
+          python manage.py syncdb --noinput
+          python manage.py migrate --noinput
+          npx dredd

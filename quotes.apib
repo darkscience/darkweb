@@ -1,0 +1,76 @@
+# DarkScience Quotes API
+
+## Quote List [/quotes/]
+
+### View All Quotes [GET]
+
++ Response 200 (application/json)
+    + Attributes (array[Quote], fixed-type)
+
+### View Top Quotes [GET /quotes/top/]
+
++ Response 200 (application/json)
+    + Attributes (array[Quote], fixed-type)
+
+### View All Quotes [GET /quotes/all/]
+
++ Response 200 (application/json)
+    + Attributes (array[Quote], fixed-type)
+
+### View All Quotes Randomly [GET /quotes/random/]
+
++ Response 200 (application/json)
+    + Attributes (array[Quote], fixed-type)
+
+### Add a new Quote [POST /quotes/add/]
+
++ Attributes
+    + quote
+
++ Request (application/x-www-form-urlencoded)
+
+        quote=%3Cdoe%3E%20Hello%20World
+
++ Response 200 (application/json)
+    + Attributes (Quote)
+
+## Quote [/quotes/{pk}/]
+
++ Parameters
+    + pk: 1
+
++ Attributes
+    + votes (number)
+    + `upvote_url`
+    + `downvote_url`
+    + `url`
+    + `upload_time`
+    + lines (array[Line], fixed-type)
+
+### View Quote [GET]
+
++ Response 200 (application/json)
+    + Attributes (Quote)
+
+### View Random Quote [GET /quotes/api/random/]
+
++ Response 200 (application/json)
+    + Attributes (Quote)
+
+### Upvote Quote [GET /quotes/{pk}/up/]
+
++ Response 200 (application/json)
+    + Attributes (Quote)
+
+### Downvote Quote [GET /quotes/{pk}/down/]
+
++ Response 200 (application/json)
+    + Attributes (Quote)
+
+## Data Structures
+
+### Line
+
++ message
++ sender
++ str
