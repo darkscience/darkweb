@@ -154,8 +154,6 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'gunicorn',
     'quotes',
-    'servers',
-    'darkweb.utils',
     'south',
     'corsheaders',
 )
