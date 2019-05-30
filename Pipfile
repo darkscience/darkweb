@@ -12,6 +12,7 @@ gunicorn = "*"
 psycopg2-binary = "*"
 django-cors-headers = "==1.1.0"
 Django = "==1.4.22"
+bugsnag = "*"
 
 [requires]
 python_version = "2.7"

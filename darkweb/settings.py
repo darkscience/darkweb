@@ -110,6 +110,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'bugsnag.django.middleware.BugsnagMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -172,10 +173,14 @@ LOGGING = {
         'console': {
             'class': 'logging.StreamHandler',
         },
+        'bugsnag': {
+            'level': 'INFO',
+            'class': 'bugsnag.handlers.BugsnagHandler',
+        },
     },
     'loggers': {
         'django.request': {
-            'handlers': ['mail_admins', 'console'],
+            'handlers': ['mail_admins', 'console', 'bugsnag',],
             'level': 'ERROR',
             'propagate': True,
         },
@@ -207,3 +212,7 @@ CORS_ORIGIN_WHITELIST = (
     'darkscience.net',
     'darkscience.rigidapp.com',
 )
+
+BUGSNAG = {
+    'api_key': '28778dac52e2c413e223ac44925fdfb7',
+}

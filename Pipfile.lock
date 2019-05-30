@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "09e5045ece07af7b1cbd0c15be89c8837b341b5b99bdd5c0e3efde788a1bc72a"
+            "sha256": "3ca3180f6ad8beefd898052c7d2265d18b6dc95723dc16745dd7475595567044"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,6 +16,15 @@
         ]
     },
     "default": {
+        "bugsnag": {
+            "hashes": [
+                "sha256:2746dfb7feaf1a2ebd8373a3d8c4144af8ece448327161f4b9be217ed47facb3",
+                "sha256:57bfc7c594014f2f795d24f561bcabd622f6127ddfa0417831a8a5150a1fd6e9",
+                "sha256:a9709616688a4babb0789dbe9a0edcdb8abb28c3477a7a34fa66268fe35f1126"
+            ],
+            "index": "pypi",
+            "version": "==3.5.2"
+        },
         "dj-database-url": {
             "hashes": [
                 "sha256:4aeaeb1f573c74835b0686a2b46b85990571159ffc21aa57ecd4d1e1cb334163",
@@ -79,6 +88,20 @@
             ],
             "index": "pypi",
             "version": "==2.8.2"
+        },
+        "six": {
+            "hashes": [
+                "sha256:3350809f0555b11f552448330d0b52d5f24c91a322ea4a15ef22629740f3761c",
+                "sha256:d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+            ],
+            "version": "==1.12.0"
+        },
+        "webob": {
+            "hashes": [
+                "sha256:05aaab7975e0ee8af2026325d656e5ce14a71f1883c52276181821d6d5bf7086",
+                "sha256:36db8203c67023d68c1b00208a7bf55e3b10de2aa317555740add29c619de12b"
+            ],
+            "version": "==1.8.5"
         }
     },
     "develop": {
