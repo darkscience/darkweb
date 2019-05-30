@@ -11,7 +11,7 @@ in service.
 
 You can configure a development environment with the following:
 
-**NOTE**: *These steps assume you have Python 2 along with pipenv installed.*
+**NOTE**: *These steps assume you have Python along with pipenv installed.*
 
 ```bash
 $ pipenv install --dev

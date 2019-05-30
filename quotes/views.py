@@ -17,7 +17,7 @@ from quotes.forms import QuoteForm
 def quotes_etag(request, *args, **kwargs):
     quotes = [quote.to_dict() for quote in Quote.objects.order_by('pk')]
     payload = json.dumps(quotes)
-    return hashlib.md5(payload).hexdigest()
+    return hashlib.md5(payload.encode('utf-8')).hexdigest()
 
 
 def last_modified(request, *args, **kwargs):
@@ -78,7 +78,7 @@ class VoteView(RedirectView):#, SingleObjectMixin):
         if self.request.user.is_authenticated():
             identifier = self.request.user.username
         else:
-            identifier = hashlib.sha1(self.request.META['REMOTE_ADDR']).hexdigest()
+            identifier = hashlib.sha1(self.request.META['REMOTE_ADDR'].encode('utf-8')).hexdigest()
 
         if not VoteLog.objects.filter(quote=quote, identifier=identifier).count():
             log = VoteLog(quote=quote, identifier=identifier)

@@ -8,7 +8,7 @@ class Quote(models.Model):
     votes = models.IntegerField(default=0)
     upload_time = models.DateTimeField(auto_now_add=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return u'%s' % self.id
 
     def get_absolute_url(self):
@@ -34,7 +34,7 @@ class Line(models.Model):
 
     quote = models.ForeignKey(Quote)
 
-    def __unicode__(self):
+    def __str__(self):
         if self.is_action:
             return '* %s %s' % (self.sender, self.message)
         return '<%s> %s' % (self.sender, self.message)
@@ -60,7 +60,7 @@ class Line(models.Model):
             'sender': self.sender,
             'message': self.message,
             'is_action': self.is_action,
-            'str': unicode(self),
+            'str': str(self),
         }
 
 

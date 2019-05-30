@@ -15,4 +15,4 @@ Django = "==1.11.20"
 bugsnag = "*"
 
 [requires]
-python_version = "2.7"
+python_version = "3.7"

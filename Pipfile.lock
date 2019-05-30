@@ -1,11 +1,11 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "11953e3856014a23552b1d1ccc5d5c39d2c4bf590f2abc8192fb2124930a7769"
+            "sha256": "1f11e80e57b73ffd9f10a1c918087827ece6d07e7059a6fbafbc184094060786"
         },
         "pipfile-spec": 6,
         "requires": {
-            "python_version": "2.7"
+            "python_version": "3.7"
         },
         "sources": [
             {
@@ -114,14 +114,6 @@
         }
     },
     "develop": {
-        "funcsigs": {
-            "hashes": [
-                "sha256:330cc27ccbf7f1e992e69fef78261dc7c6569012cf397db8d3de0234e6c937ca",
-                "sha256:a7bb0f2cf3a3fd1ab2732cb49eba4252c2af4240442415b4abce3b87022a8f50"
-            ],
-            "markers": "python_version < '3.3'",
-            "version": "==1.0.2"
-        },
         "mock": {
             "hashes": [
                 "sha256:83657d894c90d5681d62155c82bda9c1187827525880eda8ff5df4ec813437c3",
