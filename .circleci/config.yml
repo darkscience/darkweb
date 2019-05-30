@@ -14,17 +14,12 @@ jobs:
     steps:
       - checkout
       - run: |
-          pip install virtualenv
-          virtualenv venv
-          source venv/bin/activate
-          pip install -r requirements.txt
-          pip install mock
+          pip install pipenv
+          pipenv install --dev
       - run: |
-          source venv/bin/activate
-          python manage.py test quotes
+          pipenv run python manage.py test quotes
       - run: npm install dredd@10.0.0
       - run: |
-          source venv/bin/activate
-          python manage.py syncdb --noinput
-          python manage.py migrate --noinput
-          npx dredd
+          pipenv run python manage.py syncdb --noinput
+          pipenv run python manage.py migrate --noinput
+          pipenv run npx dredd

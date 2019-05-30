@@ -1,0 +1,26 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+mock = "*"
+
+[packages]
+certifi = "==0.0.8"
+chardet = "==3.0.4"
+dj-database-url = "==0.5.0"
+docutils = "==0.8.1"
+gunicorn = "==0.14.0"
+lithium = "==1.0.1"
+psycopg2-binary = "==2.8.2"
+requests = "==0.11.2"
+wsgiref = "==0.1.2"
+django-cors-headers = "==1.1.0"
+Django = "==1.4.4"
+Markdown = "==2.1.1"
+Pygments = "==1.4"
+South = "==0.7.3"
+
+[requires]
+python_version = "2.7"

@@ -11,27 +11,20 @@ in service.
 
 You can configure a development environment with the following:
 
-**NOTE**: *These steps assume you have Python 2 along with virtualenv installed.*
-
-You will need to install postgresql library beforehand, this can be accomplished
-on macOS/Homebrew as `brew install postgresql`. For development purposes you
-could also comment out the dependency in `requirements.txt` though.
+**NOTE**: *These steps assume you have Python 2 along with pipenv installed.*
 
 ```bash
-$ virtualenv venv
-$ source venv/bin/activate # add .fish for fish users
-$ pip install -r requirements.txt
-$ pip install mock
+$ pipenv install --dev
 # configure URL to DB (can be sqlite locally)
 $ export DATABASE_URL="sqlite:///$(pwd)/db.sqlite"
-$ python manage.py syncdb
-$ python manage.py migrate
+$ pipenv run python manage.py syncdb
+$ pipenv run python manage.py migrate
 ```
 
 ### Running the tests
 
 ```bash
-$ python manage.py test
+$ pipenv run python manage.py test
 ```
 
 ### Running the development server
