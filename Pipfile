@@ -7,9 +7,9 @@ verify_ssl = true
 mock = "*"
 
 [packages]
-dj-database-url = "==0.5.0"
+dj-database-url = "*"
 gunicorn = "*"
-psycopg2-binary = "==2.8.2"
+psycopg2-binary = "*"
 django-cors-headers = "==1.1.0"
 Django = "==1.4.22"
 
