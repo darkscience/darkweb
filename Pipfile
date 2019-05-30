@@ -7,8 +7,6 @@ verify_ssl = true
 mock = "*"
 
 [packages]
-certifi = "==0.0.8"
-chardet = "==3.0.4"
 dj-database-url = "==0.5.0"
 docutils = "==0.8.1"
 gunicorn = "==0.14.0"
