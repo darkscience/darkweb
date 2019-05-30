@@ -20,5 +20,5 @@ jobs:
           pipenv run python manage.py test
       - run: npm install dredd@10.0.0
       - run: |
-          pipenv run python manage.py syncdb --noinput
+          pipenv run python manage.py migrate
           pipenv run npx dredd
