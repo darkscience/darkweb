@@ -117,7 +117,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'darkweb.utils.middleware.RobotsMiddleware',
     'django.middleware.cache.FetchFromCacheMiddleware',
 )
@@ -153,8 +152,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'django.contrib.flatpages',
-    'django.contrib.markup',
     'gunicorn',
     'quotes',
     'servers',
