@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "3b81494937379b97c0ba36cf128a7a290935441b602ad5ae2feb6d90cc937769"
+            "sha256": "9a4ae5f5328888f83823b2a8f7a43c57a3379b25db08f2ca67eb5013f3aca5c1"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -65,13 +65,6 @@
             ],
             "index": "pypi",
             "version": "==0.14.0"
-        },
-        "lithium": {
-            "hashes": [
-                "sha256:4c60d713294b2c990b5d5777f61b0ea69bfef86491fc15223938060cb039535c"
-            ],
-            "index": "pypi",
-            "version": "==1.0.1"
         },
         "markdown": {
             "hashes": [

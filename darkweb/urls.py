@@ -11,11 +11,6 @@ Disallow: /forum/
 """
 
 urlpatterns = patterns('',
-    url(r'^forum/', include('lithium.forum.urls')),
-    url(r'^wiki/', include('lithium.wiki.urls')),
-    # Examples:
-    # url(r'^$', 'darkweb.views.home', name='home'),
-    # url(r'^darkweb/', include('darkweb.foo.urls')),
     url(r'^quotes/', include('quotes.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
