@@ -1,4 +1,4 @@
-from django.conf.urls.defaults import patterns, include, url
+from django.conf.urls import patterns, url, include
 from django.views.generic import ListView, FormView
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_exempt
