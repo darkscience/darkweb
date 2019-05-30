@@ -11,7 +11,7 @@ dj-database-url = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
 django-cors-headers = "==1.2.2"
-Django = "==1.10.8"
+Django = "==1.11.20"
 bugsnag = "*"
 
 [requires]
