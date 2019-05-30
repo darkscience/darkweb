@@ -136,6 +136,7 @@ ALLOWED_HOSTS = [
     'darkscience.net',
     'www.darkscience.net',
     'quotes.darkscience.net',
+    'darkscience.herokuapp.com',
 ]
 
 AUTHENTICATION_BACKENDS = (
