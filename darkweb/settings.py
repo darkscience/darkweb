@@ -154,7 +154,6 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'gunicorn',
     'quotes',
-    'south',
     'corsheaders',
 )
 
