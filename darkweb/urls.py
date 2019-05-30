@@ -15,6 +15,6 @@ def error_view(request):
 urlpatterns = patterns('',
     url(r'^quotes/', include('quotes.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^robots\.txt$', lambda r: HttpResponse(ROBOTS, mimetype="text/plain")),
+    url(r'^robots\.txt$', lambda r: HttpResponse(ROBOTS, content_type="text/plain")),
     url(r'^500/$', error_view),
 )

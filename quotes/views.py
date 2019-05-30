@@ -33,7 +33,7 @@ class QuoteDetail(DetailView):
     def get(self, request, **kwargs):
         if 'application/json' == request.META.get('HTTP_ACCEPT', None):
             quote = self.get_object().to_dict()
-            response = HttpResponse(json.dumps(quote), mimetype='application/json')
+            response = HttpResponse(json.dumps(quote), content_type='application/json')
         else:
             response = super(QuoteDetail, self).get(request, **kwargs)
 
@@ -61,7 +61,7 @@ class AddQuoteView(FormView):
         self.object = form.save()
 
         if 'application/json' == self.request.META.get('HTTP_ACCEPT', None):
-            response = HttpResponse(json.dumps(self.object.to_dict()), mimetype='application/json')
+            response = HttpResponse(json.dumps(self.object.to_dict()), content_type='application/json')
         else:
             response = super(AddQuoteView, self).form_valid(form)
 
@@ -96,7 +96,7 @@ class VoteView(RedirectView):#, SingleObjectMixin):
     def get(self, request, pk):
         if 'application/json' == request.META.get('HTTP_ACCEPT', None):
             quote = self.vote(pk)
-            response = HttpResponse(json.dumps(quote.to_dict()), mimetype='application/json')
+            response = HttpResponse(json.dumps(quote.to_dict()), content_type='application/json')
         else:
             response = super(VoteView, self).get(request, pk=pk)
 
@@ -118,7 +118,7 @@ class ListQuotes(ListView):
         if 'application/json' == request.META.get('HTTP_ACCEPT', None):
             quotes = self.get_queryset()
             quotes = [quote.to_dict() for quote in quotes]
-            response = HttpResponse(json.dumps(quotes), mimetype='application/json')
+            response = HttpResponse(json.dumps(quotes), content_type='application/json')
         else:
             response = super(ListQuotes, self).get(request, **kwargs)
 

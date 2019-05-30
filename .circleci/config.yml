@@ -17,7 +17,7 @@ jobs:
           pip install pipenv
           pipenv install --dev
       - run: |
-          pipenv run python manage.py test quotes
+          pipenv run python manage.py test
       - run: npm install dredd@10.0.0
       - run: |
           pipenv run python manage.py syncdb --noinput
