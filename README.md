@@ -17,7 +17,7 @@ You can configure a development environment with the following:
 $ pipenv install --dev
 # configure URL to DB (can be sqlite locally)
 $ export DATABASE_URL="sqlite:///$(pwd)/db.sqlite"
-$ pipenv run python manage.py syncdb
+$ pipenv run python manage.py migrate
 ```
 
 ### Running the tests

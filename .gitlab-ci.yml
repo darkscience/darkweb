@@ -19,5 +19,5 @@ test:
     DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/$POSTGRES_DB"
   script:
   - pipenv install --dev
-  - pipenv run python manage.py syncdb
+  - pipenv run python manage.py migrate
   - pipenv run python manage.py test
