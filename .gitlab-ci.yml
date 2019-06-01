@@ -11,6 +11,7 @@ cache:
   - ~/.cache/pip/
 
 before_script:
+  - pip install pipenv
   - python -V
 
 test:
